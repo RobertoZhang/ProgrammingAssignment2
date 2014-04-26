@@ -1,7 +1,8 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This function efficently computes the inverse of a given matirx with cache.
+##Cache reduces unnecessary computation.
 
-## Write a short comment describing this function
+##This function extract data and combine it with the function and variables later
+##used for cache.
 
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
@@ -17,8 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
              getinverse = getinverse)
 }
 
-## Write a short comment describing this function
-
+## This function determines whether computer computes or display cache.
 cacheSolve <- function(x, ...) {
         i <- x$getinverse()
         if(!is.null(i)) {
