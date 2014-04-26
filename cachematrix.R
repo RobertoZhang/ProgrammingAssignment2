@@ -6,12 +6,12 @@
 
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
-        set <- function(y) {
+        set <- function(y) {##list to confirm to sample code 
                 x <<- y
                 i <<- NULL
         }
         get <- function() x
-        setinverse <- function(inverse) i <<- inverse
+        setinverse <- function(inverse) i <<- inverse ##function that store computed reselt 
         getinverse <- function() i
         list(set = set, get = get,
              setinverse = setinverse,
@@ -21,13 +21,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function determines whether computer computes or display cache.
 cacheSolve <- function(x, ...) {
         i <- x$getinverse()
-        if(!is.null(i)) {
+        if(!is.null(i)) {##determine if the data was cached
                 message("getting cached data")
                 return(i)
         }
-        data <- x$get()
-        i <- solve(data, ...)
-        x$setinverse(i)
-        i
+        data <- x$get()##get data will used for computation
+        i <- solve(data, ...)##compute inverse matrix
+        x$setinverse(i)##store the computed result into external variable
+        i##discplay computed reselt as the output of the function cacheSolve
         ## Return a matrix that is the inverse of 'x'
 }
